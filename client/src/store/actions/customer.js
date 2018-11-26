@@ -5,3 +5,5 @@ export const getCustomers = () => dispatch => {
     .then(res => res.json())
     .then(customers => dispatch({type: GET_CUSTOMERS, payload: customers}))
 }
+
+
