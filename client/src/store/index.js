@@ -2,10 +2,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import websocket from '@giantmachines/redux-websocket';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import socket from './socket';
 
 const middleware = [
   thunk,
-  websocket
+  socket
 ]
 const withDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

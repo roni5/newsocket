@@ -42,4 +42,7 @@ const dispatchToProps = (dispatch) => ({
    getCustomers: () => dispatch(getCustomers())
 })
 
+
+
+
 export default connect(mapStateToProps, dispatchToProps)(Customers);

@@ -8,6 +8,7 @@ export const UPDATE_CUSTOMER = "REMOVE_CUSTOMER";
 
 // Action types dispatched by the WebSocket implementation.
 // These would be caught by reducers or other middleware.
+export const  WEBSOCKET_CONNECT = "WEBSOCKET_CONNECT";
  export const  WEBSOCKET_CONNECTING = "WEBSOCKET_CONNECTING ";
  export const  WEBSOCKET_OPEN  = "WEBSOCKET_OPEN";
  export const  WEBSOCKET_CLOSED  = "WEBSOCKET_CLOSED ";

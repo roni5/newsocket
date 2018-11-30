@@ -13,4 +13,3 @@ const customerReducer = (state = [], {type, payload}) => {
 export default customerReducer;
 
 
-

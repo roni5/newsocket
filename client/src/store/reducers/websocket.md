@@ -1,5 +1,5 @@
 
-import {WEBSOCKET_CONNECT} from '../actions/constants'
+import {WEBSOCKET_CONNECT,WEBSOCKET_MESSAGE} from '../actions/constants'
 import reducers from '.';
 
 const { url: string } = url;
@@ -54,10 +54,7 @@ const websocketReducer = (state = [], {type, payload}) => {
 // }
 // }
 
-// type: WEBSOCKET_CONNECT,
-//   payload: {
-//     url: string // something like 'wss://'
-//   }
+
 
 // const items = handleActions({
 //   [ADD_ITEM](state, { payload: { item } }) {
@@ -84,4 +81,17 @@ const websocketReducer = (state = [], {type, payload}) => {
 //         default:
 //             return state
 //     }
-// }
+// }/**
+ * An example reducer to handle WebSocket messages.
+ * NB: There is no error handling!
+ */
+const reducer = (state = {}, action) => {
+  switch (action.type) {
+    case 'WEBSOCKET:MESSAGE':
+      // Assuming that your data is a DOMString in JSON format
+      const data = JSON.parse(action.payload.data);
+      return { ...state, ...data}
+    default:
+      return state
+  }
+}
