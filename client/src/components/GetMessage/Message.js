@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import {connect } from 'react-redux';
-import { getSocket } from '../../store/actions/websocket'
-
+import { getMessage } from '../../store/actions/websocket'
 
 // import './customers.css';
 
-class Socket extends Component {
+class Message extends Component {
 
   static propTypes = {
-    getSocket: PropTypes.func.isRequired,
-    sockets: PropTypes.array.isRequired
+    getmessage: PropTypes.func.isRequired,
+    messages: PropTypes.array.isRequired
   }
 
   static defaultProps = {
-    sockets: []
+    messages: []
   }
 
   componentWillMount() {
-    this.props.getSocket();
+    this.props.getMessage();
     // this.props.getMessage();
-     console.log(getSocket());
+    // console.log(url, "this is a websocket");
   }
 
     // store.dispatch({
@@ -30,13 +29,13 @@ class Socket extends Component {
 //   }
 // })
   render() {
-
+    const {messages} = this.props
     return (
       <div>
-        <h2>Socket</h2>
+        <h2>Message</h2>
         {/* <ul>
-        {this.props.sockets.map(socket =>
-          <li key={socket.id}>{socket} Socket </li>
+        {this.props.messages.map(message =>
+          <li key={messages.id}>{message} Message </li>
         )}
         </ul> */}
       </div>
@@ -45,14 +44,14 @@ class Socket extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  sockets: state.sockets
+  messages: state.messages
 })
 
 const dispatchToProps = (dispatch) => ({
-  getSocket : () => (getSocket())
+  getMessage : () => dispatch(getMessage())
 })
 
 
 
 
-export default connect(mapStateToProps, dispatchToProps)(Socket);
+export default connect(mapStateToProps, dispatchToProps)(Message);

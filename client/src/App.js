@@ -4,7 +4,9 @@ import logo from './logo.svg'
 import './App.css'
 import store from './store'
 import Customers from './components/Customer/customers'
-import Socket from './components/Socket/socket'
+import Socket from './components/Socket/Socket'
+import Message from './components/GetMessage/Message'
+// import Socket from './components/Socket/Socket'
 class App extends Component {
 
   render () {
@@ -15,8 +17,9 @@ class App extends Component {
             <img src={ logo } className="App-logo" alt="logo"/>
             <h1 className="App-title">React/Redux Blinds</h1>
           </header>
-          <Customers>  Hello </Customers>
-          
+          <Customers />
+          <Message  > Heel </Message>
+          <Socket />
         </div>
       </Provider>
     )

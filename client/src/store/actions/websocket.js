@@ -1,7 +1,11 @@
-import { WEBSOCKET_CONNECT, WEBSOCKET_MESSAGE, WEBSOCKET_CLOSED } from './constants';
+import { WEBSOCKET_CONNECT, WEBSOCKET_OPEN, WEBSOCKET_CONNECTING, WEBSOCKET_MESSAGE, WEBSOCKET_CLOSED } from './constants';
 
 let nextDataId = 0
+
+let url = `wss://localhost:8080` 
+
 /**
+ * let url = 'wss://localhost:8080'
  * An  action creator to request a WebSocket connection.
  * When you are handling a request, say onclick of an element we need to update the state
 
@@ -43,30 +47,38 @@ return {
 //   payload: value
 // })
 
+//{payload: ,url: string}
 
-// export const getSocket = (url ) => {
-//   type: WEBSOCKET_CONNECT,
-//     payload: {
-//       url: 'wss://localhost:8080'
-//      }
+export const getSocket = url => {
+  type: WEBSOCKET_OPEN,
+      url
+     }
+    //  export const openSocket = url => {
+    //   type: WEBSOCKET_OPEN,
+    //       url
+    //      }
+// export const getSocket = (url = 'wss://localhost:8080') => {
+//   type: 'WEBSOCKET_CONNECT'
+//   payload: { url }
+// }
 
-export const getSocket = (url = 'wss://localhost:8080') => {
-  type: 'WEBSOCKET_CONNECT'
-  payload: { url }
-}
+// export const getSocket = (url = 'wss://localhost:8080') => {
+//   type: 'WEBSOCKET_CONNECTING',
+//   payload: { url }
+// }
 
-// export const message = data => ({
-//   type: 'WEBSOCKET_MESSAGE',
-//   id: nextDataId++,
-//   data
-// })
+export const getMessage = data => ({
+  type: 'WEBSOCKET_MESSAGE',
+  id: nextDataId++,
+  data
+})
 
-// export const message = data => ({
+// export const getMessage = data => ({
 //   type: WEBSOCKET_MESSAGE,
 //   payload: {
 //     timestamp: Date,
 //     event: Event,
-//     data: string
+//     data
 //   }
 // })
 
@@ -85,9 +97,3 @@ export const close = id => ({
 })
 
 
-// store.dispatch({
-//   type: WEBSOCKET_CONNECT,
-//   payload: {
-//     url: 'wss://localhost:8080'
-//   }
-// })
